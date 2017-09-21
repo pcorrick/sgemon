@@ -9,16 +9,17 @@ import httplib
 import math
 from influxdb import InfluxDBClient
 
-client = InfluxDBClient('10.10.10.50',8086,'root','root','solar')
+
+client = InfluxDBClient('IP ADDRESS',8086,'LOGIN','PASSWORD','DB')
 
 interval = 300
 
 # Sungrow IDs
 # Fiddle with the sungrow solarinfo web interface till you get them
-sgUnitId = "8603"
-sgDeviceId = "974894282"
-sgUserId = "7544"
-sgPlantId = "7811"
+sgUnitId = "xxxx"
+sgDeviceId = "xxxxxxxxx"
+sgUserId = "xxxx"
+sgPlantId = "xxxx"
 sgDelay = 300 # delay between calls to Sungrow website
 
 # Sungrow Monitor Codes
