@@ -9,7 +9,7 @@ import httplib
 import math
 from influxdb import InfluxDBClient
 
-client = InfluxDBClient('10.10.10.50',8086,'root','root','solar')
+client = InfluxDBClient('localhost',8086,'','','solar')
 
 interval = 300
 
@@ -98,7 +98,10 @@ try:
 	#temp = getData(getInverterTemps())
 
 	gridVoltage = getData(getGridVoltage())
-	#print gridVoltage
+	print power
+	print gridVoltage
+	if(gridVoltage == None):
+		gridVoltage = 0
 
 	json_body = [
 		{
@@ -107,8 +110,8 @@ try:
 				"location": "rooftop solar"
 			},
 			"fields": {
-				"power": power,
-				"grid voltage": gridVoltage
+				"power": float(power),
+				"grid voltage": float(gridVoltage)
 			}
 		}
 	]
